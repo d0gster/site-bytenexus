@@ -1,0 +1,22 @@
+.floating-point {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, #3b82f6 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+  box-shadow: 0 0 10px #3b82f6, 0 0 20px #3b82f6;
+  opacity: 0.8;
+}
+
+.floating-point::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+}

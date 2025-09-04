@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://d0gster.github.io/site-bytenexus/sitemap.xml
+
+# Disallow server files
+Disallow: /server.py
+Disallow: /start.sh
+Disallow: /.github/

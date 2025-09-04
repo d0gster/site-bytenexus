@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos ByteNexus | Catálogo Tecnológico</title>
+    <meta name="description" content="Catálogo de produtos ByteNexus: hardware de performance, games retrô e tecnologia VR/AR. Site exemplo desenvolvido por Danilo Monteiro.">
+    <meta name="keywords" content="ByteNexus produtos, catálogo tecnológico, hardware, games retrô, VR AR, exemplo desenvolvimento web">
+    <link rel="canonical" href="https://d0gster.github.io/site-bytenexus/produtos.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #3b82f6;
+            --primary-magenta: #ec4899;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d0d12;
+            color: #e2e8f0;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to right, rgba(59, 130, 246, 0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(59, 130, 246, 0.08) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
+            opacity: 0.95; 
+        }
+        
+        .neon-glow-blue {
+            text-shadow: 0 0 5px var(--primary-blue), 0 0 10px var(--primary-blue), 0 0 15px var(--primary-blue);
+        }
+
+        .neon-glow-magenta {
+            text-shadow: 0 0 5px var(--primary-magenta), 0 0 10px var(--primary-magenta), 0 0 15px var(--primary-magenta);
+        }
+
+        .card-bg {
+            background-color: #1a1a20;
+            border: 1px solid #2d2d34;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card-bg:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
+        }
+
+        .navbar {
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .nav-scrolled {
+            background-color: rgba(13, 13, 18, 0.8);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .nav-link {
+            position: relative;
+            padding: 4px 0;
+            transition: color 0.3s;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary-magenta), var(--primary-blue));
+            transform: translateX(-50%);
+            transition: width 0.3s ease-in-out;
+        }
+
+        .nav-link:hover::before {
+            width: 100%;
+            box-shadow: 0 0 5px var(--primary-blue), 0 0 10px var(--primary-magenta);
+        }
+
+        .nav-menu-mobile {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(13, 13, 18, 0.98);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 60;
+            transform: translateY(-100%);
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .nav-menu-mobile.open {
+            transform: translateY(0);
+        }
+
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #e2e8f0;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+    </style>
+</head>
+<body class="bg-[#0d0d12] text-gray-200">
+
+    <header id="navbar" class="navbar fixed top-0 left-0 w-full z-50 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-bold neon-glow-blue tracking-wide">ByteNexus</a>
+            <nav class="hidden md:flex space-x-6 text-sm font-semibold">
+                <a href="index.html" class="nav-link text-gray-400 hover:text-white">Início</a>
+                <a href="produtos.html" class="nav-link text-white">Produtos</a>
+                <a href="servicos.html" class="nav-link text-gray-400 hover:text-white">Serviços</a>
+                <a href="contato.html" class="nav-link text-gray-400 hover:text-white">Contato</a>
+            </nav>
+            <button id="menuBtn" class="md:hidden menu-toggle focus:outline-none">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <nav id="navMenuMobile" class="nav-menu-mobile md:hidden">
+        <a href="index.html" class="nav-link text-gray-400 hover:text-blue-400 text-3xl my-4" data-close-menu>Início</a>
+        <a href="produtos.html" class="nav-link text-white hover:text-magenta-400 text-3xl my-4" data-close-menu>Produtos</a>
+        <a href="servicos.html" class="nav-link text-gray-400 hover:text-blue-400 text-3xl my-4" data-close-menu>Serviços</a>
+        <a href="contato.html" class="nav-link text-gray-400 hover:text-magenta-400 text-3xl my-4" data-close-menu>Contato</a>
+    </nav>
+
+    <main class="pt-20">
+        <section class="py-16 text-center">
+            <div class="container mx-auto px-4">
+                <h1 class="text-5xl md:text-6xl font-bold neon-glow-magenta mb-4">Nossos Produtos</h1>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">Descubra nossa seleção exclusiva de <strong>hardware, games retrô e tecnologia imersiva</strong></p>
+            </div>
+        </section>
+
+        <!-- Hardware Section -->
+        <section id="hardware" class="py-16">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-12 neon-glow-blue">Hardware de Performance</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card-bg rounded-xl overflow-hidden">
+                        <img src="https://placehold.co/400x300/1e293b/3b82f6?text=GPU+Nexus+RTX" alt="GPU Nexus RTX" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">GPU Nexus RTX 4090</h3>
+                            <p class="text-gray-400 mb-4">Placa de vídeo top de linha para gaming em 4K e ray tracing avançado</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-blue-400">R$ 8.999</span>
+                                <button class="bg-gradient-to-r from-blue-600 to-magenta-500 px-4 py-2 rounded-lg font-semibold">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-bg rounded-xl overflow-hidden">
+                        <img src="https://placehold.co/400x300/1e293b/ec4899?text=CPU+Quantum+i9" alt="CPU Quantum i9" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">CPU Quantum i9-13900K</h3>
+                            <p class="text-gray-400 mb-4">Processador de 24 núcleos para máxima performance em multitarefas</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-blue-400">R$ 3.299</span>
+                                <button class="bg-gradient-to-r from-blue-600 to-magenta-500 px-4 py-2 rounded-lg font-semibold">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-bg rounded-xl overflow-hidden">
+                        <img src="https://placehold.co/400x300/1e293b/3b82f6?text=RAM+HyperX+64GB" alt="RAM HyperX" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">RAM HyperX 64GB DDR5</h3>
+                            <p class="text-gray-400 mb-4">Memória ultra-rápida com RGB sincronizado para seu setup</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-blue-400">R$ 1.899</span>
+                                <button class="bg-gradient-to-r from-blue-600 to-magenta-500 px-4 py-2 rounded-lg font-semibold">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Retro Gaming Section -->
+        <section id="retro" class="py-16">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-12 neon-glow-magenta">Games & Mídia Retrô</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card-bg rounded-xl overflow-hidden">
+                        <img src="https://placehold.co/400x300/1e293b/ec4899?text=Console+Retro+X1" alt="Console Retro X1" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Console Retro X1</h3>
+                            <p class="text-gray-400 mb-4">Console com 10.000+ jogos clássicos dos anos 80 e 90</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-blue-400">R$ 599</span>
+                                <button class="bg-gradient-to-r from-blue-600 to-magenta-500 px-4 py-2 rounded-lg font-semibold">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-bg rounded-xl overflow-hidden">
+                        <img src="https://placehold.co/400x300/1e293b/3b82f6?text=Arcade+Stick+Pro" alt="Arcade Stick Pro" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Arcade Stick Pro</h3>
+                            <p class="text-gray-400 mb-4">Controle arcade profissional com botões Sanwa originais</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-blue-400">R$ 899</span>
+                                <button class="bg-gradient-to-r from-blue-600 to-magenta-500 px-4 py-2 rounded-lg font-semibold">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-bg rounded-xl overflow-hidden">
+                        <img src="https://placehold.co/400x300/1e293b/ec4899?text=Coleção+Vinyl+80s" alt="Coleção Vinyl" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Coleção Vinyl Synthwave</h3>
+                            <p class="text-gray-400 mb-4">Trilhas sonoras clássicas dos games dos anos 80 em vinil</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-blue-400">R$ 299</span>
+                                <button class="bg-gradient-to-r from-blue-600 to-magenta-500 px-4 py-2 rounded-lg font-semibold">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VR/AR Section -->
+        <section id="vr" class="py-16">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-12 neon-glow-blue">Realidade Virtual & Aumentada</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card-bg rounded-xl overflow-hidden">
+                        <img src="https://placehold.co/400x300/1e293b/3b82f6?text=VR+Nexus+Pro" alt="VR Nexus Pro" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">VR Nexus Pro</h3>
+                            <p class="text-gray-400 mb-4">Headset VR com resolução 4K por olho e tracking sem fio</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-blue-400">R$ 4.999</span>
+                                <button class="bg-gradient-to-r from-blue-600 to-magenta-500 px-4 py-2 rounded-lg font-semibold">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-bg rounded-xl overflow-hidden">
+                        <img src="https://placehold.co/400x300/1e293b/ec4899?text=AR+Glasses+X2" alt="AR Glasses X2" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">AR Glasses X2</h3>
+                            <p class="text-gray-400 mb-4">Óculos de realidade aumentada com display holográfico</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-blue-400">R$ 6.799</span>
+                                <button class="bg-gradient-to-r from-blue-600 to-magenta-500 px-4 py-2 rounded-lg font-semibold">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-bg rounded-xl overflow-hidden">
+                        <img src="https://placehold.co/400x300/1e293b/3b82f6?text=Haptic+Suit+V3" alt="Haptic Suit V3" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Haptic Suit V3</h3>
+                            <p class="text-gray-400 mb-4">Traje háptico para feedback tátil completo em VR</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-blue-400">R$ 12.999</span>
+                                <button class="bg-gradient-to-r from-blue-600 to-magenta-500 px-4 py-2 rounded-lg font-semibold">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#0a0a0f] border-t border-gray-800 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-1">
+                    <h3 class="text-2xl font-bold neon-glow-blue mb-4">ByteNexus</h3>
+                    <p class="text-gray-400 text-sm mb-4">Sua conexão com o futuro da tecnologia. Hardware, games retrô e realidade virtual.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors" aria-label="Twitter">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-magenta-400 transition-colors" aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z"/></svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors" aria-label="YouTube">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 text-white">Navegação</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="text-gray-400 hover:text-blue-400 transition-colors">Início</a></li>
+                        <li><a href="produtos.html" class="text-gray-400 hover:text-blue-400 transition-colors">Produtos</a></li>
+                        <li><a href="servicos.html" class="text-gray-400 hover:text-blue-400 transition-colors">Serviços</a></li>
+                        <li><a href="contato.html" class="text-gray-400 hover:text-blue-400 transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 text-white">Produtos</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="produtos.html#hardware" class="text-gray-400 hover:text-magenta-400 transition-colors">Hardware</a></li>
+                        <li><a href="produtos.html#retro" class="text-gray-400 hover:text-magenta-400 transition-colors">Games Retrô</a></li>
+                        <li><a href="produtos.html#vr" class="text-gray-400 hover:text-magenta-400 transition-colors">VR/AR</a></li>
+                        <li><a href="produtos.html" class="text-gray-400 hover:text-magenta-400 transition-colors">Ver Todos</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 text-white">Contato</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li>📍 Rua da Tecnologia, 1337</li>
+                        <li>📞 (11) 3333-BYTE</li>
+                        <li>✉️ contato@bytenexus.com</li>
+                        <li>🕒 Seg-Sex: 9h às 18h</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400 text-sm">
+                    Site desenvolvido por <a href="https://d0gster.github.io" class="text-blue-400 hover:text-blue-300 transition-colors font-semibold" target="_blank" rel="noopener">Danilo Monteiro</a> | 
+                    <a href="https://d0gster.github.io" class="text-magenta-400 hover:text-magenta-300 transition-colors font-semibold" target="_blank" rel="noopener">Ver Portfolio Completo</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+        });
+
+        const menuBtn = document.getElementById('menuBtn');
+        const navMenuMobile = document.getElementById('navMenuMobile');
+        const navLinksMobile = navMenuMobile.querySelectorAll('a[data-close-menu]');
+        
+        menuBtn.addEventListener('click', () => {
+            menuBtn.classList.toggle('active');
+            navMenuMobile.classList.toggle('open');
+        });
+
+        navLinksMobile.forEach(link => {
+            link.addEventListener('click', () => {
+                menuBtn.classList.remove('active');
+                navMenuMobile.classList.remove('open');
+            });
+        });
+
+        navMenuMobile.addEventListener('click', (e) => {
+            if (e.target === navMenuMobile) {
+                menuBtn.classList.remove('active');
+                navMenuMobile.classList.remove('open');
+            }
+        });
+    </script>
+</body>
+</html>
