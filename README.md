@@ -1,6 +1,6 @@
 # ByteNexus - Portfolio Tecnológico
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://username.github.io/site-bytenexus)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://d0gster.github.io/site-bytenexus)
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
@@ -90,7 +90,7 @@ O site é automaticamente deployado no GitHub Pages quando há push na branch `m
 
 ```bash
 # Clone o repositório
-git clone https://github.com/username/site-bytenexus.git
+git clone https://github.com/d0gster/site-bytenexus.git
 
 # Entre no diretório
 cd site-bytenexus
@@ -127,9 +127,10 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ## 👨‍💻 Autor
 
-**Seu Nome**
-- GitHub: [@username](https://github.com/username)
-- LinkedIn: [Seu LinkedIn](https://linkedin.com/in/username)
+**Danilo Monteiro**
+- GitHub: [@d0gster](https://github.com/d0gster)
+- LinkedIn: [Danilo Monteiro](https://linkedin.com/in/danilo-monteir0)
+- Portfolio: [d0gster.github.io](https://d0gster.github.io)
 
 ---
 
