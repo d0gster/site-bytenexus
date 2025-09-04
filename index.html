@@ -123,35 +123,7 @@
             scroll-snap-type: x mandatory;
         }
 
-        .hero-text-glitch {
-            -webkit-animation: glitch 2s linear infinite;
-            -moz-animation: glitch 2s linear infinite;
-            animation: glitch 2s linear infinite;
-        }
 
-        @-webkit-keyframes glitch {
-            0% { -webkit-transform: skew(0deg); text-shadow: 0 0 5px var(--primary-blue); }
-            25% { -webkit-transform: skew(-1deg); text-shadow: 0 0 5px var(--primary-magenta); }
-            50% { -webkit-transform: skew(2deg); text-shadow: 0 0 5px var(--primary-blue); }
-            75% { -webkit-transform: skew(1deg); text-shadow: 0 0 5px var(--primary-magenta); }
-            100% { -webkit-transform: skew(0deg); text-shadow: 0 0 5px var(--primary-blue); }
-        }
-        
-        @-moz-keyframes glitch {
-            0% { -moz-transform: skew(0deg); text-shadow: 0 0 5px var(--primary-blue); }
-            25% { -moz-transform: skew(-1deg); text-shadow: 0 0 5px var(--primary-magenta); }
-            50% { -moz-transform: skew(2deg); text-shadow: 0 0 5px var(--primary-blue); }
-            75% { -moz-transform: skew(1deg); text-shadow: 0 0 5px var(--primary-magenta); }
-            100% { -moz-transform: skew(0deg); text-shadow: 0 0 5px var(--primary-blue); }
-        }
-        
-        @keyframes glitch {
-            0% { transform: skew(0deg); text-shadow: 0 0 5px var(--primary-blue); }
-            25% { transform: skew(-1deg); text-shadow: 0 0 5px var(--primary-magenta); }
-            50% { transform: skew(2deg); text-shadow: 0 0 5px var(--primary-blue); }
-            75% { transform: skew(1deg); text-shadow: 0 0 5px var(--primary-magenta); }
-            100% { transform: skew(0deg); text-shadow: 0 0 5px var(--primary-blue); }
-        }
 
         .navbar {
             transition: background-color 0.3s, box-shadow 0.3s;
@@ -244,11 +216,6 @@
 
         /* Melhorias de acessibilidade */
         @media (prefers-reduced-motion: reduce) {
-            .hero-text-glitch {
-                -webkit-animation: none !important;
-                -moz-animation: none !important;
-                animation: none !important;
-            }
             .carousel-item {
                 -webkit-transition: none !important;
                 -moz-transition: none !important;
@@ -305,7 +272,7 @@
         <section id="inicio" class="relative overflow-hidden py-16 md:py-20 text-center">
             <div class="absolute inset-0 bg-gradient-to-br from-[#0d0d12] via-transparent to-[#1a1a20] opacity-70"></div>
             <div class="relative container mx-auto px-4">
-                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight hero-text-glitch">
+                <h1 class="text-4xl md:text-6xl font-bold tracking-tight">
                     <span class="neon-glow-blue">O</span> Futuro da
                     <span class="neon-glow-magenta">Tecnologia</span>
                 </h1>
